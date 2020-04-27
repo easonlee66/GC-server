@@ -31,6 +31,7 @@ function zc(){
         var y=document.forms["zc"]["pass"].value;
         var z=JSON.parse(UsersData);
         z.n=z.n+1;
+        z.Users[z.n]=new Object();
         z.Users[z.n].UsersName=x;
         z.Users[z.n].keywords=y;
         xmlhttp.onreadystatechange = function() {
