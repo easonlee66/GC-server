@@ -2,3 +2,6 @@ body{
     background-color: black;
     text-align: center;
 }
+button{
+    font-size: 2em;
+}
