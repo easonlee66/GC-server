@@ -143,14 +143,14 @@ int dl(){
 		cin >> name3 >> key;
 		if(name3==name2){
 			if(key2==key){
-				cout << "登陆成功！~";
+				cout << "��¼�ɹ�~";
 				Sleep(900);
 				UsersName=name3;
 				fclose(stdin);
 				return 0;
 			}
 			else{
-				cout << "密码错误！重新登录！！";
+				cout << "������� :( ���µ�¼";
 				Sleep(900);
 				dl();
 				fclose(stdin);
@@ -161,25 +161,10 @@ int dl(){
 	fclose(stdin);
 	freopen("CON","r",stdin);
 	if(i==n2-1){
-		cout << "用户名不存在，可能因为本平台暂时只有一个服，而一个服只能容纳50人，所以自动清理多余信息\n\n 1.重新登录   2.重新注册";
-		//system("pause");
-		int number;
-		number = getch();
-		while(number>2){
-			cout << "输入错误！！！重新输入！！！\n";
-		//	system("pause");
-			number=getch();
-		}
-		if(number==1){
-			dl();
-			fclose(stdin);
-			return 0;
-		}
-		else{
-			zc();
-			fclose(stdin);
-			return 0;
-		}
+		cout << "�û��������ڣ���ע����ٵ�¼";
+		zc();
+		fclose(stdin);
+		return 0;
 	}
 }
 #define FOREGROUND_WHITE FOREGROUND_RED|FOREGROUND_BLUE|FOREGROUND_GREEN
@@ -200,7 +185,7 @@ void message(){
 void enterX(){
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_RED|BACKGROUND_INTENSITY|FOREGROUND_INTENSITY|FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
 //	gotoxy(30,50);
-	print("欢迎您使用GC_server",100);
+	print("��ӭ��ʹ��GC_server ^_^",100);
 	RETURN_INIT;
 	cout << "\n                                                            ";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_BLUE|FOREGROUND_INTENSITY|FOREGROUND_WHITE);
