@@ -83,7 +83,7 @@ int zc(){
 			/**/cin >> a.name >> a.key;
 			if(a.name==name2){
 				MessageBox(NULL,"ÓÃ»§ÃûÒÑ´æÔÚ£¬ÇëµÇÂ¼","Error",MB_OK);
-				return zc();
+				return dl();
 			}
 			name.push(a);
 		}
@@ -189,15 +189,15 @@ void enterX(){
 	RETURN_INIT;
 	cout << "\n                                                            ";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_BLUE|FOREGROUND_INTENSITY|FOREGROUND_WHITE);
-	print("1.å¿«é€Ÿæ³¨å†Œ");
+	print("1.¿ìËÙ×¢²á");
 	RETURN_INIT;
 	print("   ");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_BLUE|FOREGROUND_INTENSITY|FOREGROUND_WHITE);
-	print("2.ç«‹å³ç™»å½•");
+	print("2.Á¢¼´µÇÂ¼");
 	RETURN_INIT;
 	print("     ");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_BLUE|FOREGROUND_INTENSITY|FOREGROUND_WHITE);
-	print("3.ç¨‹åºä¿¡æ¯");
+	print("3.°æ±¾ĞÅÏ¢");
 	RETURN_INIT;
 }
 #undef n
@@ -206,12 +206,13 @@ int main(){
 	system("title GC_server1.1°æ±¾·şÎñÆ÷");
 	system("mode con cols=180 lines=45");
 	system("color fc");
-	enterX();
 	wol();
-	if(MessageBox(NULL,"³öÏÖÂÒÂë£¿","ĞŞ¸´ÂÒÂë fix randomword",MB_YESNO|MB_ICONQUESTION)){
-		MessageBox(NULL,"fix:\npress OK and copy no_randomword program","fix randomword",MB_OKCANCEL|MB_ICONINFORMATION);
+	system("cls");
+	enterX();
+/*	if(MessageBox(NULL,"³öÏÖÂÒÂë£¿","ĞŞ¸´ÂÒÂë fix randomword",MB_YESNO|MB_ICONQUESTION|MB_SYSTEMMODAL)==IDYES){
+		MessageBox(NULL,"fix:\npress OK and copy no_randomword program","fix randomword",MB_OK|MB_ICONINFORMATION);
 		system("start https://gitee.com/easonlee66/GC-server/blob/master/C++/GC_server.cpp");
-	}
+	}*/
 	int number;
 	cin >> number;
 	while(number>3||number<0){
@@ -234,13 +235,12 @@ int main(){
 	}
 	else{
 		dl();
-		return 0;
 	}
 	freopen("CON","r",stdin);
 	system("cls");
-	cout << UsersName << "ÄãºÃ^_^";
+	cout << UsersName << "ÄãºÃ^_^\n";
 	while(number!=0){
-		cout << "Ñ¡ÔñÄÄÒ»¿îÓÎÏ·£¿\n  1.²ÂÊı£¨Ô­´´£©  2.Ê¯Í·¼ôµ¶²¼£¨×ªÔØ£©  3.Õü¾È¹«Ö÷£¨Ô­´´£©     4.Ì°³ÔÉß£¨×ªÔØ£©  5.ÃÔ¹¬£¨×ªÔØ£©®«  6.ÉñÓò£¨×ªÔØ£©   7.2048£¨×ªÔØ£©   8.æ–—åœ°ä¸» 0.é€€å‡º\n";
+		cout << "Ñ¡ÔñÄÄÒ»¿îÓÎÏ·£¿\n  1.²ÂÊı£¨Ô­´´£©  2.Ê¯Í·¼ôµ¶²¼£¨×ªÔØ£©  3.Õü¾È¹«Ö÷£¨Ô­´´£©     4.Ì°³ÔÉß£¨×ªÔØ£©  5.ÃÔ¹¬£¨×ªÔØ£©®«  6.ÉñÓò£¨×ªÔØ£©   7.2048£¨×ªÔØ£©   8.¶·µØÖ÷£¨×ªÔØ£©   0.ÍË³ö";
 		number=getint4();
 		while(number>8){
 			cout << "ÊäÈë´íÎó :( ÇëÖØĞÂÊäÈë\n";
