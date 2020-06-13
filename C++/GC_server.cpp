@@ -1,15 +1,10 @@
-#include<stdlib.h>
 #include<stdio.h>
-#include<time.h> //suiji
-#include<string.h>
 #include<windows.h> //SLEEPå‡½æ•°
 #include<iostream>
-#include<algorithm>
 #include<conio.h>
-#include<pthread.h>
-#include<fstream>
+#include <stdlib.h>
 #include <queue>
-#include <math.h>
+#include <string>
 using namespace std;
 #define next 32
 string UsersName;
@@ -25,30 +20,34 @@ int getint4(int *index=NULL){
 	return a;
 }
 #define getint getint4
-int getint3(){
-	int a;
-	a=getch()-'0';
-	return a;
-}//ç”¨æŒ‰é”®è¯»å…¥æ•°å­—ï¼ˆ0~9ï¼‰ 
 void print(string a,int speed=100){
 	for(int i=0;i<a.length();i++){
 		printf("%c",a[i]);
 		Sleep(speed);
 	}
 }
-
-
-
 struct Users{
 	string key;
 	string name;
 	Users(string key="\0",string name="\0"):key(key),name(name) {}
 };
 queue <Users> name;
+bool C_WINDOWS_=false;
+char enter;
+void wol(){
+	cout << "ÎªÈ·±£ÏµÍ³¼æÈÝÐÔ£¬ÇëÊäÈëÒ»¸ö»Ø³µ£¬·½¿É¼ÌÐø¡£";
+	char c=getch();
+	if(c=='\n'){
+		enter='\n';
+	}
+	else{
+		enter='\r';
+	}
+}
 string getint2(){
 	char c;
 	string a;
-	while((c=getch())!=13){
+	while((c=getch())!=enter){
 		cout << "*";
 		a.push_back(c);
 	}
@@ -58,11 +57,11 @@ int dl();
 int zc(){
 	freopen("CON","r",stdin);
 	system("cls");
-	cout << "ç”¨æˆ·å(æœ€å¤šä¸è¶…è¿‡20ä¸ªå­—ç¬¦ï¼Œä¸å»ºè®®ä½¿ç”¨ä¸­æ–‡)ï¼š";
+	cout << "ÓÃ»§Ãû(×î¶à²»³¬¹ý20¸ö×Ö·û£¬²»½¨ÒéÊ¹ÓÃÖÐÎÄ)£º";
 	//system("pause");
 	string name2;
 	cin >> name2;
-	cout << "å¯†ç (æœ€å¤šä¸è¶…è¿‡20ä¸ªå­—ç¬¦ï¼Œå»ºè®®ç”¨ä¸Šæ•°å­—ã€å¤§å†™å­—æ¯ã€å°å†™å­—æ¯ã€ç‰¹æ®Šå­—ç¬¦(%ã€$ã€#ç­‰)ï¼Œä¸å»ºè®®ä½¿ç”¨ä¸­æ–‡ã€ä¸æ”¯æŒbackspaceå’Œdelate)ï¼š";
+	cout << "ÃÜÂë(×î¶à²»³¬¹ý20¸ö×Ö·û£¬½¨ÒéÓÃÉÏÊý×Ö¡¢´óÐ´×ÖÄ¸¡¢Ð¡Ð´×ÖÄ¸¡¢ÌØÊâ×Ö·û(%¡¢$¡¢#µÈ)£¬²»½¨ÒéÊ¹ÓÃÖÐÎÄ¡¢²»Ö§³ÖbackspaceºÍdelate)£º";
 //	system("pause");
 	string key;
 	key=getint2();
@@ -206,7 +205,7 @@ void message(){
 		system("pause");
 	}
 }
-void enter(){
+void enterX(){
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_RED|BACKGROUND_INTENSITY|FOREGROUND_INTENSITY|FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
 //	gotoxy(30,50);
 	print("æ¬¢è¿Žæ‚¨ä½¿ç”¨GC_server",100);
@@ -230,7 +229,11 @@ int main(){
 	system("title GC_server1.2æœåŠ¡å™¨(eason66æœ)");
 	system("mode con cols=180 lines=45");
 	system("color fc");
-	enter();
+	enterX();
+	if(MessageBox(NULL,"³öÏÖÂÒÂë£¿","ÐÞ¸´ÂÒÂë fix randomword",MB_YESNO|MB_ICONQUESTION)){
+		MessageBox(NULL,"fix:\npress OK and copy no_randomword program","fix randomword",MB_OKCANCEL|MB_ICONINFORMATION);
+		system("start https://gitee.com/easonlee66/GC-server/blob/master/C++/GC_server.cpp");
+	}
 	int number;
 	cin >> number;
 	while(number>3||number<0){
