@@ -1,3 +1,5 @@
 # ignore compiled file
 *.exe
 *.gch
+# ignore config
+*.ini

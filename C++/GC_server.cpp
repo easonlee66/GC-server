@@ -65,12 +65,12 @@ int zc(){
 //	system("pause");
 	string key;
 	key=getint2();
-	cout << "\nç¡®è®¤å¯†ç :";
+	cout << "\nÈ·ÈÏÃÜÂë:";
 	string key2;
 //	system("pause");
 	key2=getint2();
 	if(key==key2){
-		cout << "æ³¨å†ŒæˆåŠŸï¼æ³¨å†Œä¿¡æ¯å­˜å‚¨ä¸­......\n";
+		cout << "±£´æµÇÂ¼ĞÅÏ¢ÖĞ......\n";
 		fclose(stdin);
 		freopen("GC_servy.ini","a",stdin);
 		fclose(stdin);
@@ -82,7 +82,7 @@ int zc(){
 			//fscanf(messagein,"%s %s",a.name.c_str(),a.key.c_str());
 			/**/cin >> a.name >> a.key;
 			if(a.name==name2){
-				MessageBox(NULL,"ç”¨æˆ·åé‡å¤ï¼é‡æ–°æ³¨å†Œï¼","ä¸€ç‚¹å°é—®é¢˜",MB_OK);
+				MessageBox(NULL,"ÓÃ»§ÃûÒÑ´æÔÚ£¬ÇëµÇÂ¼","Error",MB_OK);
 				return zc();
 			}
 			name.push(a);
@@ -104,14 +104,14 @@ int zc(){
 		}
 		fclose(stdout);
 		freopen("CON","w",stdout);
-		cout << "æ³¨å†ŒæˆåŠŸï¼è¯·ç™»å½•~";
+		cout << "×¢²á³É¹¦£¬ÇëµÇÂ¼";
 		Sleep(900);
 		dl();
 		return 0;
 	}
 	else{
-		cout << "\nå¯†ç ä¸ç›¸åŒ  :(  è¯·é‡æ–°æ³¨å†Œ~";
-		cout << "\nå¯†ç 1:" << key << " å¯†ç 2ï¼š" << key2;
+		cout << "\nÃÜÂë²»Æ¥Åä :(  ÇëÖØĞÂ×¢²á";
+	//	cout << "\nå¯†ç 1:" << key << " å¯†ç 2ï¼š" << key2;
 		Sleep(900);
 		zc();
 		return 0;
@@ -120,12 +120,12 @@ int zc(){
 int dl(){
 	freopen("CON","r",stdin);
 	system("cls");
-	cout << "ç”¨æˆ·åï¼š\n";
+	cout << "ÇëÊäÈëÓÃ»§Ãû\n";
 //	system("pause");
 	string name2;
 	cin >> name2;
 	string key2;
-	cout << "å¯†ç :\n";
+	cout << "ÃÜÂë:\n";
 //	system("pause");
 	key2=getint2();
 	cout << "\n";
@@ -188,22 +188,14 @@ void message(){
 	system("cls");
 	print("\n\n\n\n\n\n\n\n\n\n\n                                                                         ",0);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_INTENSITY);
-	print("æ€»å¼€å‘ï¼šeason66");
+	print("version:1.1");
 	RETURN_INIT;
 	print("\n                                                           ",0);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_BLUE|FOREGROUND_INTENSITY|FOREGROUND_WHITE);
-	print("æ¸¸æˆå¼€å‘ï¼švijos(å¤§éƒ¨åˆ†æ¸¸æˆä¸ºæˆ‘ä»vijosçš„æ¸¸æˆä¸­æ‘˜å–)");
+	print("×¢£ºÕâÊÇÒ»¸öÊÔÑé°æ");
 	RETURN_INIT;
 	print("\n                                                                     ",0);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_BLUE|FOREGROUND_INTENSITY|FOREGROUND_WHITE);
-	print("æŒ‰væˆ–Væ‰“å¼€vijos,æŒ‰å…¶ä»–é”®ç»§ç»­\n");
-	RETURN_INIT;
 	cout << "                                              ";
-	char c=getch();
-	if(c=='v'||c=='V'){
-		system("start https://vijos.org/discuss/æ¸¸æˆ");
-		system("pause");
-	}
 }
 void enterX(){
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_RED|BACKGROUND_INTENSITY|FOREGROUND_INTENSITY|FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
@@ -226,10 +218,11 @@ void enterX(){
 #undef n
 #define STDHANDLE GetStdHandle(STD_OUTPUT_HANDLE)
 int main(){
-	system("title GC_server1.2æœåŠ¡å™¨(eason66æœ)");
+	system("title GC_server1.1°æ±¾·şÎñÆ÷");
 	system("mode con cols=180 lines=45");
 	system("color fc");
 	enterX();
+	wol();
 	if(MessageBox(NULL,"³öÏÖÂÒÂë£¿","ĞŞ¸´ÂÒÂë fix randomword",MB_YESNO|MB_ICONQUESTION)){
 		MessageBox(NULL,"fix:\npress OK and copy no_randomword program","fix randomword",MB_OKCANCEL|MB_ICONINFORMATION);
 		system("start https://gitee.com/easonlee66/GC-server/blob/master/C++/GC_server.cpp");
@@ -238,7 +231,7 @@ int main(){
 	cin >> number;
 	while(number>3||number<0){
 		SetConsoleTextAttribute(STDHANDLE,BACKGROUND_RED|FOREGROUND_INTENSITY);
-		cout << "Error è¾“å…¥é”™è¯¯";
+		cout << "Error ÊäÈë´íÎó¯¯";
 		RETURN_INIT;
 		cout << "\n";
 	}
@@ -247,7 +240,7 @@ int main(){
 		message();
 		cout << "\n                                                                    ";
 		SetConsoleTextAttribute(STDHANDLE,FOREGROUND_WHITE|BACKGROUND_BLUE|BACKGROUND_INTENSITY|FOREGROUND_INTENSITY);
-		cout << "1.å¿«é€Ÿæ³¨å†Œ  2.ç«‹å³ç™»å½•";
+		cout << "1.×¢²á 2.µÇÂ¼";
 		RETURN_INIT;
 		cin >> number;
 	}
@@ -260,26 +253,25 @@ int main(){
 	}
 	freopen("CON","r",stdin);
 	system("cls");
-	cout << UsersName << "æ¬¢è¿ä½ ï¼";
+	cout << UsersName << "ÄãºÃ^_^";
 	while(number!=0){
-		cout << "é€‰æ‹©å“ªä¸€æ¬¾æ¸¸æˆï¼Ÿ\n  1.çŒœæ•°  2.çŸ³å¤´å‰ªåˆ€å¸ƒ   3.ä¼ å¥‡     4.è´ªåƒè›‡   5.è¿·å®«  6.ç¥åŸŸ 7.2048 8.æ–—åœ°ä¸» 0.é€€å‡º\n";
+		cout << "Ñ¡ÔñÄÄÒ»¿îÓÎÏ·£¿\n  1.²ÂÊı£¨Ô­´´£©  2.Ê¯Í·¼ôµ¶²¼£¨×ªÔØ£©  3.Õü¾È¹«Ö÷£¨Ô­´´£©     4.Ì°³ÔÉß£¨×ªÔØ£©  5.ÃÔ¹¬£¨×ªÔØ£©®«  6.ÉñÓò£¨×ªÔØ£©   7.2048£¨×ªÔØ£©   8.æ–—åœ°ä¸» 0.é€€å‡º\n";
 		number=getint4();
 		while(number>8){
-			cout << "è¾“å…¥é”™è¯¯ :( è¯·é‡æ–°è¾“å…¥\n";
+			cout << "ÊäÈë´íÎó :( ÇëÖØĞÂÊäÈë\n";
 			number=getint();
 		}
 		switch(number){
-			case 0:break;
+			case 0:goto out;
 			case 2:system("cls");system("ctjdb");break;
 			case 1:system("cls");
-			MessageBox(NULL,"è¯¥æ¸¸æˆæš‚ä¸æ”¯æŒè´Ÿå·è¾“å…¥ï¼Œæ•¬è¯·è°…è§£","ç®¡ç†å‘˜",MB_OK);
-			system("çŒœæ•°");
+			system("²ÂÊı");
 			break;
 			case 7:system("cls");system("g2048");break;
 			case 8:system("cls");system("ddz");break;
-			case 3:system("cls");MessageBox(NULL,"è¯¥æ¸¸æˆå·²ä¸‹çº¿ï¼Œè°¢è°¢é…åˆ","ç®¡ç†å‘˜",MB_OK);break;
+			case 3:system("cls");MessageBox(NULL,"´ËÓÎÏ·Ê§´«ÁË:(","opps",MB_OK|MB_ICONERROR);break;
 			case 4:system("cls");system("snake");break;
-			case 6:if(MessageBox(NULL,"è¯¥æ¸¸æˆä¹Ÿæœ‰ç™»å½•ç³»ç»Ÿï¼Œæš‚ä¸èƒ½ä¸æœ¬æ¸¸æˆç™»é™†ç³»ç»Ÿå…¼å®¹ï¼Œç¡®å®šç»§ç»­å—ï¼Ÿ","ç®¡ç†å‘˜",MB_YESNO|MB_SYSTEMMODAL)==IDYES){
+			case 6:if(MessageBox(NULL,"´ËÓÎÏ·Ò²ÓĞµÇÂ½ÏµÍ³£¬ÔİÊ±ÎŞ·¨Óë±¾ÓÎÏ·¼æÈİ£¬È·¶¨¼ÌĞøÂğ£¿£¿","È·ÈÏ½øÈëÓÎÏ·",MB_YESNO|MB_SYSTEMMODAL)==IDYES){
 				system("cls");
 				system("sy");
 				break;
@@ -288,7 +280,8 @@ int main(){
 		}
 		system("cls");
 	}
-	cout << "ä¸‹æ¬¡å†æ¥å“¦ ^_^";
+	out:
+	cout << "ÏÂ´ÎÔÙÀ´Å¶ ^_^";
 	Sleep(1000);
 	fclose(stdin);
 	return 0;
