@@ -1,5 +1,5 @@
 #include <iostream>
 using namespace std;
 int main(){
-    cout << "     绗簲浜烘牸鏅�氱増";
+    cout << "     第五人格";
 }

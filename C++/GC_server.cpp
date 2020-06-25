@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<windows.h> //SLEEP鍑芥暟
+#include<windows.h>
 #include<iostream>
 #include<conio.h>
 #include <stdlib.h>
@@ -173,12 +173,9 @@ void message(){
 	system("cls");
 	print("\n\n\n\n\n\n\n\n\n\n\n                                                                         ",0);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_INTENSITY);
-	print("version:1.1");
+	print("version:1.0.1");
 	RETURN_INIT;
 	print("\n                                                           ",0);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_BLUE|FOREGROUND_INTENSITY|FOREGROUND_WHITE);
-	print("注：这是一个试验版");
-	RETURN_INIT;
 	print("\n                                                                     ",0);
 	cout << "                                              ";
 }
@@ -199,6 +196,10 @@ void enterX(){
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_BLUE|FOREGROUND_INTENSITY|FOREGROUND_WHITE);
 	print("3.版本信息");
 	RETURN_INIT;
+	print("     ");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_BLUE|FOREGROUND_INTENSITY|FOREGROUND_WHITE);
+	print("4.导入/导出配置");
+	RETURN_INIT;
 }
 #undef n
 #define STDHANDLE GetStdHandle(STD_OUTPUT_HANDLE)
@@ -215,13 +216,25 @@ int main(){
 	}*/
 	int number;
 	cin >> number;
-	while(number>3||number<0){
+	while(number>4||number<0){
 		SetConsoleTextAttribute(STDHANDLE,BACKGROUND_RED|FOREGROUND_INTENSITY);
 		cout << "Error 输入错误";
 		RETURN_INIT;
 		cout << "\n";
 	}
 	RETURN_INIT;
+	if(number==4){
+		system("cls");
+		cout << "导入/导出文件位置：(不超过1000个字符，扩展名为.ini)";
+		char s[1010];
+		cin >> s;
+		sprintf(s,"pg %s",s);
+		system(s);
+		SetConsoleTextAttribute(STDHANDLE,FOREGROUND_WHITE|BACKGROUND_BLUE|BACKGROUND_INTENSITY|FOREGROUND_INTENSITY);
+		cout << "1.注册 2.登录";
+		RETURN_INIT;
+		cin >> number;
+	}
 	if(number==3){
 		message();
 		cout << "\n                                                                    ";
