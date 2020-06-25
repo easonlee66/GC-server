@@ -2,4 +2,4 @@
 *.exe
 *.gch
 # ignore users config
-GC_server.ini
+GC_servy.ini
