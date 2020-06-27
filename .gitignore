@@ -1,6 +1,7 @@
 # ignore compiled files
 *.exe
 *.gch
+*.out
 # ignore users config
 GC_servy.ini
 # ignore test files
