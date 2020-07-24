@@ -30,12 +30,12 @@ echo GC-server Upgraded,but it can't use.compiling……
 @echo on
 cd "%~dp0"\MinGW\bin
 rem 编译文件
-g++ "%~dp0"\C++\GC_server.cpp
-g++ "%~dp0"\C++\cs.cpp
-g++ "%~dp0"\C++\ctjdb.cpp
-g++ "%~dp0"\C++\drcs.cpp
-g++ "%~dp0"\C++\g2048.cpp
-g++ "%~dp0"\C++\gzcs.cpp
+g++ "%~dp0C++\GC_server.cpp"
+g++ "%~dp0C++\cs.cpp"
+g++ "%~dp0C++\ctjdb.cpp"
+g++ "%~dp0C++\drcs.cpp"
+g++ "%~dp0C++\g2048.cpp"
+g++ "%~dp0C++\gzcs.cpp"
 
 @echo on
 echo GC-server complied,enjoy it !
