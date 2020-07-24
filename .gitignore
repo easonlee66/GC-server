@@ -6,3 +6,5 @@
 GC_servy.ini
 # ignore test files
 /test
+# ignore git dir
+/git
