@@ -36,3 +36,9 @@ g++ "%~dp0"\C++\ctjdb.cpp
 g++ "%~dp0"\C++\drcs.cpp
 g++ "%~dp0"\C++\g2048.cpp
 g++ "%~dp0"\C++\gzcs.cpp
+
+@echo on
+echo GC-server complied,enjoy it !
+
+@echo off
+pause
