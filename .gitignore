@@ -4,6 +4,7 @@
 *.out
 # ignore users config
 GC_servy.ini
+game.ini
 # ignore test files
 /test
 # ignore git dir
