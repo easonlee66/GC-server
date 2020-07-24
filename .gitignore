@@ -8,3 +8,5 @@ GC_servy.ini
 /test
 # ignore git dir
 /git
+# ignore MinGW dir
+/MinGW
