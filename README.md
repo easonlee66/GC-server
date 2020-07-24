@@ -5,4 +5,4 @@ game center server 游戏中心服务器
 
 毕竟我小学五年级，做出来的东西难免特别烂，敬请谅解。
 
-[安装详细教程](https://www.cnblogs.com/eason66-blog/p/comein.html),密码1357
+安装详细教程请至公众号天阳代码回复“打游戏”即可。
