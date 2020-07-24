@@ -4,7 +4,7 @@
 #include <conio.h>
 using namespace std;
 void print(string index,int speed=100){
-	for(int i=0;i<index.length();i++){
+	for(int i=0;i<(int)index.length();i++){
 		cout << index[i];
 		Sleep(speed);
 	}

@@ -1,5 +1,7 @@
 #include <string>
 #include <cstdio>
+#include <iostream>
+#include <Windows.h>
 using namespace std;
 //º¯Êý¶¨Òå
 void sch(int color);
