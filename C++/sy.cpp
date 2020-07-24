@@ -2,7 +2,11 @@
 #include <cstdio>
 #include <iostream>
 #include <Windows.h>
+#include <conio.h>
+#include <time.h>
 using namespace std;
+#define n 20
+int ny;
 //º¯Êý¶¨Òå
 void sch(int color);
 void fileout();
@@ -888,4 +892,8 @@ int sy(){
     fileout();
     system("cls");
     return 0;
+}
+int main(){
+	sy();
+	return 0;
 }
