@@ -263,7 +263,7 @@ int main(){
 			case 0:goto out;
 			case 2:system("cls");system("ctjdb");break;
 			case 1:system("cls");
-			system("²ÂÊý");
+			system("cs");
 			break;
 			case 7:system("cls");system("g2048");break;
 			case 8:system("cls");system("ddz");break;

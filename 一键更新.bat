@@ -25,7 +25,12 @@ rem rd/s/q "%~dp0"\.git\refs\original > nul
 rem rd/s/q "%~dp0"\.git\logs\ > nul
 
 @echo on 
-echo GC-server Upgraded,enjoy it!
+echo GC-server Upgraded,but it can't use.compiling……
 
 @echo off
-pause
+cd "%~dp0"\MinGW\bin
+rem 编译文件
+g++ "%~dp0"\C++\GC_server.cpp
+g++ "%~dp0"\C++\cs.cpp
+g++ "%~dp0"\C++\ctjdb.cpp
+g++ "%~dp0"\C++\drcs.cpp
