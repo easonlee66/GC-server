@@ -27,15 +27,15 @@ int main(){
 		cin >> index;
 		system("cls");
 		if(index==1){
-			system("格子猜数");
+			system("gzcs");
 		}
 		else{
-			system("计算猜数");
+			system("jscs");
 		}
 	}
 	else{
 		system("cls");
-		system("多人猜数");
+		system("drcs");
 	}
 	cout << "再来一次吗？(y/n)";
 	char x=getch();

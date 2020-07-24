@@ -34,3 +34,5 @@ g++ "%~dp0"\C++\GC_server.cpp
 g++ "%~dp0"\C++\cs.cpp
 g++ "%~dp0"\C++\ctjdb.cpp
 g++ "%~dp0"\C++\drcs.cpp
+g++ "%~dp0"\C++\g2048.cpp
+g++ "%~dp0"\C++\gzcs.cpp
