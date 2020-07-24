@@ -27,7 +27,7 @@ rem rd/s/q "%~dp0"\.git\logs\ > nul
 @echo on 
 echo GC-server Upgraded,but it can't use.compiling……
 
-@echo off
+@echo on
 cd "%~dp0"\MinGW\bin
 rem 编译文件
 g++ "%~dp0"\C++\GC_server.cpp
