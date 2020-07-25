@@ -69,7 +69,7 @@ int zc(){
 //	system("pause");
 	key2=getint2();
 	if(key==key2){
-		cout << "保存登录信息中......\n";
+		cout << "\n保存登录信息中......\n";
 		fclose(stdin);
 		freopen("GC_servy.ini","a",stdin);
 		fclose(stdin);
@@ -103,7 +103,7 @@ int zc(){
 		}
 		fclose(stdout);
 		freopen("CON","w",stdout);
-		cout << "注册成功，请登录";
+		cout << "注册成功，请登录\n";
 		Sleep(900);
 		dl();
 		return 0;
