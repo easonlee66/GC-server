@@ -5,10 +5,10 @@
 #include <stdlib.h>
 #include <queue>
 #include <string>
+//一大堆头文件
 using namespace std;
-#define next 32
 string UsersName;
-int getint4(int *index=NULL){
+int getint(int *index=NULL){
 	char c;
 	int a;
 	while((c=getch())!=13){
@@ -19,7 +19,6 @@ int getint4(int *index=NULL){
 	cout << "\n";
 	return a;
 }
-#define getint getint4
 void print(string a,int speed=100){
 	for(int i=0;i<a.length();i++){
 		printf("%c",a[i]);
@@ -181,7 +180,7 @@ void message(){
 }
 void enterX(){
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_RED|BACKGROUND_INTENSITY|FOREGROUND_INTENSITY|FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
-//	gotoxy(30,50);
+	gotoxy(30,50);
 	print("欢迎你使用GC_server ^_^",100);
 	RETURN_INIT;
 	cout << "\n                                                            ";

@@ -2,6 +2,8 @@
 *.exe
 *.gch
 *.out
+#Unignore snake.exe
+!/C++/snake.exe
 # ignore users config
 GC_servy.ini
 game.ini
