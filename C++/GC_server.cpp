@@ -172,15 +172,11 @@ void message(){
 	system("cls");
 	print("\n\n\n\n\n\n\n\n\n\n\n                                                                         ",0);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_INTENSITY);
-	print("version:1.0.1");
-	RETURN_INIT;
-	print("\n                                                           ",0);
-	print("\n                                                                     ",0);
-	cout << "                                              ";
+	print("version:1.0.2 IN Ò×Éý°æ");
 }
 void enterX(){
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_RED|BACKGROUND_INTENSITY|FOREGROUND_INTENSITY|FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
-	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                           " 
+	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                           ";
 	print("»¶Ó­ÄãÊ¹ÓÃGC_server ^_^",100);
 	RETURN_INIT;
 	cout << "\n                                                            ";
