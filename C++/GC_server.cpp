@@ -180,7 +180,7 @@ void message(){
 }
 void enterX(){
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_RED|BACKGROUND_INTENSITY|FOREGROUND_INTENSITY|FOREGROUND_RED|FOREGROUND_GREEN|FOREGROUND_BLUE);
-	gotoxy(30,50);
+	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                           " 
 	print("欢迎你使用GC_server ^_^",100);
 	RETURN_INIT;
 	cout << "\n                                                            ";
@@ -253,7 +253,7 @@ int main(){
 	cout << UsersName << "你好^_^\n";
 	while(number!=0){
 		cout << "选择哪一款游戏？\n  1.猜数（原创）  2.石头剪刀布（转载）  3.拯救公主（原创）     4.贪吃蛇（转载）  5.迷宫（转载）  6.神域（转载）   7.2048（转载）   8.斗地主（转载）   0.退出";
-		number=getint4();
+		number=getint();
 		while(number>8){
 			cout << "输入错误 :( 请重新输入\n";
 			number=getint();
