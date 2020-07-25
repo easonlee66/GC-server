@@ -38,7 +38,6 @@ g++ "%~dp0C++\g2048.cpp" -o "%~dp0C++\g2048.exe"
 g++ "%~dp0C++\gzcs.cpp" -o "%~dp0C++\gzcs.exe"
 g++ "%~dp0C++\jscs.cpp" -o "%~dp0C++\jscs.exe"
 g++ "%~dp0C++\mg.cpp" -o "%~dp0C++\mg.exe"
-g++ "%~dp0C++\snake.cpp" -o "%~dp0C++\snake.exe"
 g++ "%~dp0C++\sy.cpp" -o "%~dp0C++\sy.exe"
 
 @echo on
