@@ -210,7 +210,8 @@ int main(){
 		system("start https://gitee.com/easonlee66/GC-server/blob/master/C++/GC_server.cpp");
 	}*/
 	int number;
-	cin >> number;
+	in:
+	number=getch()-'0';
 	while(number>4||number<0){
 		SetConsoleTextAttribute(STDHANDLE,BACKGROUND_RED|FOREGROUND_INTENSITY);
 		cout << "Error 输入错误";
@@ -220,15 +221,8 @@ int main(){
 	RETURN_INIT;
 	if(number==4){
 		system("cls");
-		cout << "导入/导出文件位置：(不超过1000个字符，扩展名为.ini)";
-		char s[1010];
-		cin >> s;
-		sprintf(s,"pg %s",s);
-		system(s);
-		SetConsoleTextAttribute(STDHANDLE,FOREGROUND_WHITE|BACKGROUND_BLUE|BACKGROUND_INTENSITY|FOREGROUND_INTENSITY);
-		cout << "1.注册 2.登录";
-		RETURN_INIT;
-		cin >> number;
+		MessageBox(NULL,"功能开发中……","GC-server",MB_OK);
+		goto in;
 	}
 	if(number==3){
 		message();
