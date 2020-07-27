@@ -261,7 +261,7 @@ int main(){
 			break;
 			case 7:system("cls");system("g2048");break;
 			case 8:system("cls");system("ddz");break;
-			case 3:system("cls");MessageBox(NULL,"此游戏失传了:(","opps",MB_OK|MB_ICONERROR);break;
+			case 3:system("cls");system("zjgz");break;
 			case 4:system("cls");system("snake");break;
 			case 6:if(MessageBox(NULL,"此游戏也有登陆系统，暂时无法与本游戏兼容，确定继续吗？？","确认进入游戏",MB_YESNO|MB_SYSTEMMODAL)==IDYES){
 				system("cls");

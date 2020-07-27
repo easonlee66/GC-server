@@ -39,6 +39,7 @@ g++ "%~dp0C++\gzcs.cpp" -o "%~dp0C++\gzcs.exe"
 g++ "%~dp0C++\jscs.cpp" -o "%~dp0C++\jscs.exe"
 g++ "%~dp0C++\mg.cpp" -o "%~dp0C++\mg.exe"
 g++ "%~dp0C++\sy.cpp" -o "%~dp0C++\sy.exe"
+g++ "%~dp0C++\zjgz.cpp" -o "%~dp0C++\zjgz.exe"
 
 @echo on
 echo GC-server complied,enjoy it !
