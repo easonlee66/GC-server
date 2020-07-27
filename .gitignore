@@ -13,3 +13,5 @@ game.ini
 /git
 # ignore MinGW dir
 /MinGW
+# ignore useless files
+push.bat

@@ -6,6 +6,7 @@
 #include <queue>
 #include <string>
 //一大堆头文件
+#define DEBUG//是否为内部调试模式 
 using namespace std;
 string UsersName;
 int getint(int *index=NULL){
@@ -28,20 +29,14 @@ void print(string a,int speed=100){
 struct Users{
 	string key;
 	string name;
-	Users(string key="\0",string name="\0"):key(key),name(name) {}
+	int level; 
+	Users(string key="\0",string name="\0",int level=-1):key(key),name(name),level(level) {}
 };
 queue <Users> name;
 bool C_WINDOWS_=false;
 char enter;
 void wol(){
-	cout << "为确保系统兼容性，请输入一个回车，方可继续。";
-	char c=getch();
-	if(c=='\n'){
-		enter='\n';
-	}
-	else{
-		enter='\r';
-	}
+	enter='\r'; 
 }
 string getint2(){
 	char c;
@@ -53,6 +48,7 @@ string getint2(){
 	return a;
 }
 int dl();
+string UserLevel;
 int zc(){
 	freopen("CON","r",stdin);
 	system("cls");
@@ -79,14 +75,14 @@ int zc(){
 		for(int i=0;i<n2;i++){
 			Users a;
 			//fscanf(messagein,"%s %s",a.name.c_str(),a.key.c_str());
-			/**/cin >> a.name >> a.key;
+			/**/cin >> a.name >> a.key >> a.level;
 			if(a.name==name2){
 				MessageBox(NULL,"用户名已存在，请登录","Error",MB_OK);
 				return dl();
 			}
 			name.push(a);
 		}
-		name.push(Users(key,name2));
+		name.push(Users(key,name2,-1));
 		n2++;
 		if(n2==51){
 			name.pop();
@@ -109,7 +105,7 @@ int zc(){
 		return 0;
 	}
 	else{
-		cout << "\n密码不匹配 :(  请重新注册";
+		cout << "\n密码不匹配 :(  请重新注册\n";
 	//	cout << "\n瀵嗙爜1:" << key << " 瀵嗙爜2锛? << key2;
 		Sleep(900);
 		zc();
@@ -139,17 +135,26 @@ int dl(){
 	int i;
 	for(i=0;i<n2;i++){
 		//cin >> name3 >> key;
-		cin >> name3 >> key;
+		int level;
+		cin >> name3 >> key >> level;
 		if(name3==name2){
 			if(key2==key){
 				cout << "登录成功~";
 				Sleep(900);
+				switch(level){
+					case -1:UserLevel="非正式用户";break;
+					case 0:UserLevel="免费会员";break;
+					case 1:UserLevel="1级会员";break;
+				}
 				UsersName=name3;
 				fclose(stdin);
 				return 0;
 			}
 			else{
 				cout << "密码错误 :( 重新登录";
+				#ifdef DEBUG
+				cout << "应密码：" << key << "实密码：" << key2;
+				#endif
 				Sleep(900);
 				dl();
 				fclose(stdin);
@@ -240,7 +245,7 @@ int main(){
 	}
 	freopen("CON","r",stdin);
 	system("cls");
-	cout << UsersName << "你好^_^\n";
+	cout<< "尊敬的" << UserLevel << " " << UsersName << "你好^_^\n";
 	while(number!=0){
 		cout << "选择哪一款游戏？\n  1.猜数（原创）  2.石头剪刀布（转载）  3.拯救公主（原创）     4.贪吃蛇（转载）  5.迷宫（转载）  6.神域（转载）   7.2048（转载）   8.斗地主（转载）   0.退出";
 		number=getint();
