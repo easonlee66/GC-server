@@ -8,7 +8,7 @@
 //一大堆头文件
 #define DEBUG//是否为内部调试模式 
 using namespace std;
-string UsersName;
+char UsersName[100];
 int getint(int *index=NULL){
 	char c;
 	int a;
@@ -52,10 +52,15 @@ string UserLevel;
 int zc(){
 	freopen("CON","r",stdin);
 	system("cls");
-	cout << "用户名(最多不超过20个字符，不建议使用中文)：";
+	cout << "用户名(最多不超过20个字符，不建议使用中文，不能为zjn)：";
 	//system("pause");
 	string name2;
 	cin >> name2;
+	if(name2=="zjn"){
+		MessageBox(NULL,"用户名不能为zjn","error",MB_OK);
+		zc();
+		return 0;
+	}
 	cout << "密码(最多不超过20个字符，建议用上数字、大写字母、小写字母、特殊字符(%、$、#等)，不建议使用中文、不支持backspace和delate)：";
 //	system("pause");
 	string key;
@@ -203,6 +208,11 @@ void enterX(){
 }
 #undef n
 #define STDHANDLE GetStdHandle(STD_OUTPUT_HANDLE)
+bool Ause(string gamename){
+	system("cls");
+	cout << "是否将您的注册信息授权给" << gamename << "？\n1. 是 2.否\n注：如果你想使用作弊，请输入2";
+	return (getch-'0')==1;
+}
 int main(){
 	system("title GC_server1.1版本服务器");
 	system("mode con cols=180 lines=45");
@@ -247,9 +257,9 @@ int main(){
 	system("cls");
 	cout<< "尊敬的" << UserLevel << " " << UsersName << "你好^_^\n";
 	while(number!=0){
-		cout << "选择哪一款游戏？\n  1.猜数（原创）  2.石头剪刀布（转载）  3.拯救公主（原创）     4.贪吃蛇（转载）  5.迷宫（转载）  6.神域（转载）   7.2048（转载）   8.斗地主（转载）   0.退出";
+		cout << "选择哪一款游戏？\n  1.猜数（原创）  2.石头剪刀布（转载）  3.拯救公主（原创）     4.贪吃蛇（转载）  5.迷宫（转载）  6.神域（转载）   7.2048（转载）   8.斗地主（转载）   " << ((UsersLevel=="非正式用户")?"9.输入邀请码以成为正式用户   10.输入赞赏代码以成为正式用户  11.输入辅助码以成为证是用户":"") << "  0.退出";
 		number=getint();
-		while(number>8){
+		while(number>8&&UserLevel!="非正式用户"||number>11&&UserLevel=="非正式用户"){
 			cout << "输入错误 :( 请重新输入\n";
 			number=getint();
 		}
@@ -257,6 +267,14 @@ int main(){
 			case 0:goto out;
 			case 2:system("cls");system("ctjdb");break;
 			case 1:system("cls");
+			if(Ause("拯救公主游戏"){
+				char x[200];
+				sprintf(x,"zjgz %s",UsersName);
+				system(x);
+			}
+			else{
+				system("zjgz zjn");
+			}
 			system("cs");
 			break;
 			case 7:system("cls");system("g2048");break;
@@ -268,7 +286,8 @@ int main(){
 				system("sy");
 				break;
 			}system("cls");break;
-			default:system("cls");system("mg");break;
+			case 5:system("cls");system("mg");break;
+			case 6:
 		}
 		system("cls");
 	}

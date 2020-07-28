@@ -2,18 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <windows.h>
-using namespace std;
-/*extern
-  __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __mingw_svsprintf (string __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
-int ssprintf(string __stream, const char *__format, ...){
-  register int __retval;
-  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-  __retval = __mingw_svsprintf( __stream, __format, __local_argv );
-  __builtin_va_end( __local_argv );
-  return __retval;
-}*/
-void print(string a){
+using namespace std;void print(string a){
 	for(int i=0;i<a.length();i++){
 		printf("%c",a[i]);
 		Sleep(100);
@@ -270,17 +259,16 @@ int drink(int x){
 int main(int argv,char *argc[]){
 	srand(time(0));
 	int bar=rand(),hotel=rand(),forest_1=rand(),forest_2=rand(),forest_3=rand(),grass_1=rand(),grass_2=rand(),grass_3=rand();
-	print("这是一个勇者的世界！！雅丽萨斯国的罗茜公主被陌生人绑架了！！\n\n\n伟大的勇者啊，拿起武器，营救公主！！！\n\n\n输入你的名字（100个字符以内）\n");
-	cin >> play.name;
-	if(play.name=="EVA初号机"){
-		print("封印多年的EVA初号机啊，你终于可以重见天日了！！！\n\n\nEVA初号机，重新启动...随即,暴走！！！\n");
-		play.fangyu+=10000;
-		play.gongji+=10000;
-		play.max_hp+=10000;
-		play.hp+=10000;
+	print("这是一个勇者的世界！！雅丽萨斯国的罗茜公主被陌生人绑架了！！\n\n\n伟大的勇者啊，拿起武器，营救公主！！！");
+	if(argc[1]=="zjn"){
+		cout << "\n\n\n输入你的名字（100个字符以内，输入“开启作弊”打开作弊模式）\n"
+		cin >> play.name;
 	}
-	if(play.name=="seven"||play.name=="eason"||play.name=="carolyn"){
-		print("曾救出公主的勇士啊，你终于回来了！！！随即，暴走！！！！！\n");
+	else{
+		play.name=argc[1];
+	}
+	if(play.name=="开启作弊"){
+		print("作弊模式已开启\n");
 		play.fangyu+=10000;
 		play.gongji+=10000;
 		play.max_hp+=10000;
@@ -537,4 +525,3 @@ int main(int argv,char *argc[]){
 	system("pause");
 	return 0;
 }
-
