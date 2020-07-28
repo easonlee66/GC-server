@@ -7,7 +7,7 @@
 using namespace std;
 #define n 20
 int ny;
-//º¯Êý¶¨Òå
+//å‡½æ•°å®šä¹‰
 void sch(int color);
 void fileout();
 void print(const char a[],int b);
@@ -25,23 +25,23 @@ bool login_register();
 void enter();
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//´æµµÏµÍ³
+//å­˜æ¡£ç³»ç»Ÿ
 struct users{
     char name[105];int namelen;
     char password[105];int passwordlen;
     int gold,h,u;
 }user[100005];
 int usertot,nowuser;
-void fileout(){
+void fileout(bool x){
     freopen("game.ini","w",stdout);
     cout<<usertot<<endl;
     for (int i=1;i<=usertot;i++)cout<<user[i].name<<' '<<user[i].namelen<<' '<<user[i].password<<' '<<user[i].passwordlen<<' '<<user[i].gold<<' '<<user[i].h<<' '<<user[i].u<<endl;
 }
-//´æµµÏµÍ³
+//å­˜æ¡£ç³»ç»Ÿ
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//¹¤¾ß³ÌÐò
+//å·¥å…·ç¨‹åº
 void sch(int color){
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     return;
@@ -74,59 +74,59 @@ void cursor(bool a){
     CursorInfo.bVisible = a;
     SetConsoleCursorInfo(handle, &CursorInfo);
 }
-//¹¤¾ß³ÌÐò
+//å·¥å…·ç¨‹åº
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//ÉñÖ®ÉÌ³Ç
+//ç¥žä¹‹å•†åŸŽ
 void shop(int c){
     system("cls");
-    cout<<"Ê£Óà½ð±Ò£º"<<user[c].gold<<endl;
-    cout<<"°´H¹ºÂòÎäÆ÷"<<endl;
-    cout<<"°´U¹ºÂò¼¼ÄÜ"<<endl;
+    cout<<"å‰©ä½™é‡‘å¸ï¼š"<<user[c].gold<<endl;
+    cout<<"æŒ‰Hè´­ä¹°æ­¦å™¨"<<endl;
+    cout<<"æŒ‰Uè´­ä¹°æŠ€èƒ½"<<endl;
     char x;
     x=getch();
     if(x>='a'){
     	x-='a'-'A';
 	}
-    if (x!='H'&&x!='U'){cout<<"²Ù×÷Ê§°Ü£¡"<<endl;Sleep(500);return;}
+    if (x!='H'&&x!='U'){cout<<"æ“ä½œå¤±è´¥ï¼"<<endl;Sleep(500);return;}
     if (x=='H'){
-        cout<<endl<<"ÇëÊäÈëÎäÆ÷±àºÅ¹ºÂòÎäÆ÷"<<endl;
-        cout<<"1 ÉñÖ®½£ »¨·Ñ0½ð±Ò"<<endl;
-        cout<<"2 ¼¤¹âÇ¹ »¨·Ñ200½ð±Ò" <<endl;
-        cout<<"3 ¼¤¹âÅÚ »¨·Ñ400½ð±Ò"<<endl;
-        cout<<"4 ¸ÅÂÊÇ¹ »¨·Ñ1500½ð±Ò"<<endl;
-        cout<<"5 µçÖ®¹­ »¨·Ñ1000½ð±Ò"<<endl;
+        cout<<endl<<"è¯·è¾“å…¥æ­¦å™¨ç¼–å·è´­ä¹°æ­¦å™¨"<<endl;
+        cout<<"1 ç¥žä¹‹å‰‘ èŠ±è´¹0é‡‘å¸"<<endl;
+        cout<<"2 æ¿€å…‰æžª èŠ±è´¹200é‡‘å¸" <<endl;
+        cout<<"3 æ¿€å…‰ç‚® èŠ±è´¹400é‡‘å¸"<<endl;
+        cout<<"4 æ¦‚çŽ‡æžª èŠ±è´¹1500é‡‘å¸"<<endl;
+        cout<<"5 ç”µä¹‹å¼“ èŠ±è´¹1000é‡‘å¸"<<endl;
         int cost[105]={0,0,200,400,1500,1000};
         char s=getch();
-        if (s<'1'||s>'5'){cout<<"²Ù×÷Ê§°Ü"<<endl;Sleep(500);return;}
-        if ((user[c].h&(1<<s-1-48))||(user[c].gold<cost[s-48])){cout<<"²Ù×÷Ê§°Ü£¡"<<endl;Sleep(500);return;}
+        if (s<'1'||s>'5'){cout<<"æ“ä½œå¤±è´¥"<<endl;Sleep(500);return;}
+        if ((user[c].h&(1<<s-1-48))||(user[c].gold<cost[s-48])){cout<<"æ“ä½œå¤±è´¥ï¼"<<endl;Sleep(500);return;}
         user[c].h|=(1<<s-1-48),user[c].gold-=cost[s-48];
-        cout<<"¹ºÂò³É¹¦£¡"<<endl;
+        cout<<"è´­ä¹°æˆåŠŸï¼"<<endl;
         Sleep(500);
     }
     if (x=='U'){
-        cout<<endl<<"ÇëÊäÈë¼¼ÄÜ±àºÅ¹ºÂò¼¼ÄÜ"<<endl;
-        cout<<"1 ¼ýÓê »¨·Ñ0½ð±Ò"<<endl;
-        cout<<"2 ÉúÃü·¨Õó »¨·Ñ600½ð±Ò" <<endl;
-        cout<<"3 ·¨Êõ´«ËÍ »¨·Ñ800½ð±Ò"<<endl;
-        cout<<"4 Í»´Ì »¨·Ñ600½ð±Ò"<<endl;
-        cout<<"5 Ê±¿ÕÔ¾Ç¨ »¨·Ñ1000½ð±Ò"<<endl;
+        cout<<endl<<"è¯·è¾“å…¥æŠ€èƒ½ç¼–å·è´­ä¹°æŠ€èƒ½"<<endl;
+        cout<<"1 ç®­é›¨ èŠ±è´¹0é‡‘å¸"<<endl;
+        cout<<"2 ç”Ÿå‘½æ³•é˜µ èŠ±è´¹600é‡‘å¸" <<endl;
+        cout<<"3 æ³•æœ¯ä¼ é€ èŠ±è´¹800é‡‘å¸"<<endl;
+        cout<<"4 çªåˆº èŠ±è´¹600é‡‘å¸"<<endl;
+        cout<<"5 æ—¶ç©ºè·ƒè¿ èŠ±è´¹1000é‡‘å¸"<<endl;
         int cost[105]={0,0,600,800,600,1000};
         char s=getch();
-        if (s<'1'||s>'5'){cout<<"²Ù×÷Ê§°Ü£¡"<<endl;Sleep(500);return;}
-        if ((user[c].u&(1<<s-1-48))||(user[c].gold<cost[s-48])){cout<<"²Ù×÷Ê§°Ü£¡"<<endl;Sleep(500);return;}
+        if (s<'1'||s>'5'){cout<<"æ“ä½œå¤±è´¥ï¼"<<endl;Sleep(500);return;}
+        if ((user[c].u&(1<<s-1-48))||(user[c].gold<cost[s-48])){cout<<"æ“ä½œå¤±è´¥ï¼"<<endl;Sleep(500);return;}
         user[c].u|=1<<(s-1-48),user[c].gold-=cost[s-48];
-        cout<<"¹ºÂò³É¹¦£¡"<<endl;
+        cout<<"è´­ä¹°æˆåŠŸï¼"<<endl;
         Sleep(500);
     }
     return;
 }
-//ÉñÖ®ÉÌ³Ç
+//ç¥žä¹‹å•†åŸŽ
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//ÉñÓòÕ½Õù
+//ç¥žåŸŸæˆ˜äº‰
 struct warmap{
     int a,b,hp;
 }mp[30][30];
@@ -163,44 +163,44 @@ void war(int c){
     char hc,uc;
     if (user[c].h==0||user[c].u==0){
         system("cls");
-        cout<<"ÇëÏÈ¹ºÂòÎäÆ÷ºÍ¼¼ÄÜ"<<endl;
+        cout<<"è¯·å…ˆè´­ä¹°æ­¦å™¨å’ŒæŠ€èƒ½"<<endl;
         Sleep(500);
         return;
     }
     system("cls");
     int sss=user[c].h;
-    cout<<"ÇëÊäÈë±àºÅÑ¡ÔñÎäÆ÷"<<endl;
-    if (sss&1)cout<<"1 ÉñÖ®½£"<<endl;
-    if (sss&2)cout<<"2 ¼¤¹âÇ¹"<<endl;
-    if (sss&4)cout<<"3 ¼¤¹âÅÚ"<<endl;
-    if (sss&8)cout<<"4 ¸ÅÂÊÇ¹"<<endl;
-    if (sss&16)cout<<"5 µçÖ®¹­"<<endl;
+    cout<<"è¯·è¾“å…¥ç¼–å·é€‰æ‹©æ­¦å™¨"<<endl;
+    if (sss&1)cout<<"1 ç¥žä¹‹å‰‘"<<endl;
+    if (sss&2)cout<<"2 æ¿€å…‰æžª"<<endl;
+    if (sss&4)cout<<"3 æ¿€å…‰ç‚®"<<endl;
+    if (sss&8)cout<<"4 æ¦‚çŽ‡æžª"<<endl;
+    if (sss&16)cout<<"5 ç”µä¹‹å¼“"<<endl;
     hc=getch();
     if (hc<'1'||hc>'5'||(!(sss&(1<<(hc-48-1))))){
         system("cls");
-        cout<<"²Ù×÷Ê§°Ü£¡"<<hc-48-1<<endl;
+        cout<<"æ“ä½œå¤±è´¥ï¼"<<hc-48-1<<endl;
         Sleep(500);
         return;
     }
-    else cout<<"Ñ¡Ôñ³É¹¦£¡"<<endl;
+    else cout<<"é€‰æ‹©æˆåŠŸï¼"<<endl;
     Sleep(500);
     hc-=48;
     system("cls");
     sss=user[c].u;
-    cout<<"ÇëÊäÈë±àºÅÑ¡Ôñ¼¼ÄÜ"<<endl;
-    if (sss&1)cout<<"1 ¼ýÓê"<<endl;
-    if (sss&2)cout<<"2 ÉúÃü·¨Õó"<<endl;
-    if (sss&4)cout<<"3 ·¨Êõ´«ËÍ"<<endl;
-    if (sss&8)cout<<"4 Í»´Ì"<<endl;
-    if (sss&16)cout<<"5 Ê±¿ÕÔ¾Ç¨"<<endl;
+    cout<<"è¯·è¾“å…¥ç¼–å·é€‰æ‹©æŠ€èƒ½"<<endl;
+    if (sss&1)cout<<"1 ç®­é›¨"<<endl;
+    if (sss&2)cout<<"2 ç”Ÿå‘½æ³•é˜µ"<<endl;
+    if (sss&4)cout<<"3 æ³•æœ¯ä¼ é€"<<endl;
+    if (sss&8)cout<<"4 çªåˆº"<<endl;
+    if (sss&16)cout<<"5 æ—¶ç©ºè·ƒè¿"<<endl;
     uc=getch();
     if (uc<'1'||uc>'5'||(!(sss&(1<<(uc-1-48))))){
         system("cls");
-        cout<<"²Ù×÷Ê§°Ü£¡"<<endl;
+        cout<<"æ“ä½œå¤±è´¥ï¼"<<endl;
         Sleep(500);
         return;
     }
-    else cout<<"Ñ¡Ôñ³É¹¦£¡"<<endl;
+    else cout<<"é€‰æ‹©æˆåŠŸï¼"<<endl;
     uc-=48;
     Sleep(500);
     int hp=5;
@@ -222,9 +222,9 @@ void war(int c){
                 for (int j=1;j<=n;j++)
                     mp[i][j].b=0;
             }
-            cout<<"Í¨¹ØÁË£¡"<<endl;
+            cout<<"é€šå…³äº†ï¼"<<endl;
             user[c].gold+=1000;
-            cout<<"»ñµÃ1000½ð±Ò£¡"<<endl;
+            cout<<"èŽ·å¾—1000é‡‘å¸ï¼"<<endl;
             Sleep(3000);
             return;
         }
@@ -252,27 +252,27 @@ void war(int c){
         Sleep(500);
         if (hp<=0){
             system("cls");
-            cout<<"ÉñÊ§°ÜÁË£¡"<<endl;
-            cout<<"¹²½øÐÐ"<<cnt<<"»ØºÏ"<<endl;
-            cout<<"¹²»ñµÃ"<<gold<<"½ð±Ò"<<endl;
-            cout<<"¹²»÷É±"<<killl<<"µÐÈË"<<endl;
+            cout<<"ç¥žå¤±è´¥äº†ï¼"<<endl;
+            cout<<"å…±è¿›è¡Œ"<<cnt<<"å›žåˆ"<<endl;
+            cout<<"å…±èŽ·å¾—"<<gold<<"é‡‘å¸"<<endl;
+            cout<<"å…±å‡»æ€"<<killl<<"æ•Œäºº"<<endl;
             user[c].gold+=gold;
             Sleep(2000);
             return;
         }
-        cout<<"µ±Ç°ÉúÃüÖµ£º"<<hp<<endl;
-        cout<<"µ±Ç°ÄÜÁ¿Öµ£º"<<kill<<endl;
-        cout<<"µ±Ç°»ØºÏÊý£º"<<cnt<<endl;
-        cout<<"ÒÆ¶¯ÇëÊäÈëW»òA»òS»òD"<<endl;
-        cout<<"¼¼ÄÜÇëÊäÈëU µ±Ç°CD£º"<<ucd<<endl;
-        cout<<"¹¥»÷ÇëÊäÈëI»òJ»òK»òL"<<endl;
-        cout<<"ÏûºÄ40ÄÜÁ¿Öµ»Ø¸´ÉúÃüÇëÊäÈëH"<<endl;
-        cout<<"ÏûºÄ100ÄÜÁ¿ÖµÇå³ýËùÓÐµÐÈËÇëÊäÈëC"<<endl;
-        cout<<"ÍË³öÓÎÏ·ÇëÊäÈëB"<<endl;
+        cout<<"å½“å‰ç”Ÿå‘½å€¼ï¼š"<<hp<<endl;
+        cout<<"å½“å‰èƒ½é‡å€¼ï¼š"<<kill<<endl;
+        cout<<"å½“å‰å›žåˆæ•°ï¼š"<<cnt<<endl;
+        cout<<"ç§»åŠ¨è¯·è¾“å…¥Wæˆ–Aæˆ–Sæˆ–D"<<endl;
+        cout<<"æŠ€èƒ½è¯·è¾“å…¥U å½“å‰CDï¼š"<<ucd<<endl;
+        cout<<"æ”»å‡»è¯·è¾“å…¥Iæˆ–Jæˆ–Kæˆ–L"<<endl;
+        cout<<"æ¶ˆè€—40èƒ½é‡å€¼å›žå¤ç”Ÿå‘½è¯·è¾“å…¥H"<<endl;
+        cout<<"æ¶ˆè€—100èƒ½é‡å€¼æ¸…é™¤æ‰€æœ‰æ•Œäººè¯·è¾“å…¥C"<<endl;
+        cout<<"é€€å‡ºæ¸¸æˆè¯·è¾“å…¥B"<<endl;
         char cc=getch();
         if (cc=='B'){
             system("cls");
-            cout<<"¹²»ñµÃ"<<gold<<"½ð±Ò"<<endl;
+            cout<<"å…±èŽ·å¾—"<<gold<<"é‡‘å¸"<<endl;
             user[c].gold+=gold;
             Sleep(500);
             return;
@@ -280,7 +280,7 @@ void war(int c){
         if (cc=='H'&&kill>=40){
             kill-=40;
             hp=5;
-            cout<<"»Ø¸´³É¹¦£¡"<<endl;
+            cout<<"å›žå¤æˆåŠŸï¼"<<endl;
         }
         if (cc=='C'&&kill>=100){
             kill-=100;
@@ -331,11 +331,11 @@ void war(int c){
             ucd=cd[uc]+1;
         }
         if (cc=='U'&&ucd==0&&uc==4){
-            cout<<"ÇëÑ¡ÔñÍ»´Ì·½Ïò£¬ÊäÈëI»òJ»òK»òL"<<endl;
+            cout<<"è¯·é€‰æ‹©çªåˆºæ–¹å‘ï¼Œè¾“å…¥Iæˆ–Jæˆ–Kæˆ–L"<<endl;
             char inc;
             inc=getch();
             if (inc!='I'&&inc!='J'&&inc!='K'&&inc!='L'){
-                cout<<"²Ù×÷Ê§°Ü£¡"<<endl;
+                cout<<"æ“ä½œå¤±è´¥ï¼"<<endl;
                 Sleep(500);
             }
             int nnx=xx,nny=yy;
@@ -380,7 +380,7 @@ void war(int c){
             ucd=cd[uc]+1;
         }
         if (cc=='U'&&ucd==0&&uc==5){
-            cout<<"ÇëÑ¡ÔñÒÆ¶¯·½Ïò£¬ÊäÈëI»òJ»òK»òL"<<endl;
+            cout<<"è¯·é€‰æ‹©ç§»åŠ¨æ–¹å‘ï¼Œè¾“å…¥Iæˆ–Jæˆ–Kæˆ–L"<<endl;
             char inc;
             inc=getch();
             if (inc=='I')xx=1;
@@ -778,15 +778,15 @@ void war(int c){
     }
     return;
 }
-//ÉñÓòÕ½Õù
+//ç¥žåŸŸæˆ˜äº‰
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void game2(){
     char x;
     while(x!='B'&&x!='b'){
-        cout<<"ÍË³ö²¢±£´æÓÎÏ·ÇëÊäÈë£ºB"<<endl;
-        cout<<"´ò¿ªÉñÖ®ÉÌ³ÇÇëÊäÈë£ºS"<<endl;
-        cout<<"½øÈëÉñÓòÕ½ÕùÇëÊäÈë£ºW"<<endl;
+        cout<<"é€€å‡ºå¹¶ä¿å­˜æ¸¸æˆè¯·è¾“å…¥ï¼šB"<<endl;
+        cout<<"æ‰“å¼€ç¥žä¹‹å•†åŸŽè¯·è¾“å…¥ï¼šS"<<endl;
+        cout<<"è¿›å…¥ç¥žåŸŸæˆ˜äº‰è¯·è¾“å…¥ï¼šW"<<endl;
         x=getch();
         if (x=='S'||x=='s')shop(nowuser);
         if (x=='W'||x=='w')war(nowuser);
@@ -796,7 +796,7 @@ void game2(){
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//×¢²á µÇÂ¼
+//æ³¨å†Œ ç™»å½•
 char rere[105];
 bool issame(string x){
     for (int i=1;i<x.size();i++)
@@ -817,34 +817,34 @@ bool login_register(){
     char k=getch();
     while(k!='1'&&k!='2'){
         system("cls");
-        cout<<"±§Ç¸£¬ÇëÄúÔÙÊÔÒ»´Î"<<endl;
-        cout<<"µÇÂ½Çë°´1"<<' '<<"ÓÃ»§Ãû"<<' '<<"ÃÜÂë"<<endl;
-        cout<<"×¢²áÇë°´2"<<' '<<"ÓÃ»§Ãû"<<' '<<"ÃÜÂë"<<endl;
+        cout<<"æŠ±æ­‰ï¼Œè¯·æ‚¨å†è¯•ä¸€æ¬¡"<<endl;
+        cout<<"ç™»é™†è¯·æŒ‰1"<<' '<<"ç”¨æˆ·å"<<' '<<"å¯†ç "<<endl;
+        cout<<"æ³¨å†Œè¯·æŒ‰2"<<' '<<"ç”¨æˆ·å"<<' '<<"å¯†ç "<<endl;
         k=getch();
     }
     system("cls");
     if (k=='1'){
         if (usertot==0){cout<<"ERROR"<<endl;return 0;}
-        cout<<"ÇëÊäÈëÓÃ»§Ãû£º"<<endl;
+        cout<<"è¯·è¾“å…¥ç”¨æˆ·åï¼š"<<endl;
         int len;
         scanf("%s",rere);
         len=strlen(rere);
         system("cls");
         while(!canfind(len)){
-            cout<<"±§Ç¸£¬Î´ÕÒµ½ÓÃ»§Ãû"<<endl;
-            cout<<"ÇëÖØÐÂÊäÈë"<<endl;
+            cout<<"æŠ±æ­‰ï¼Œæœªæ‰¾åˆ°ç”¨æˆ·å"<<endl;
+            cout<<"è¯·é‡æ–°è¾“å…¥"<<endl;
             scanf("%s",rere);
             len=strlen(rere);
             system("cls");
         }
         nowuser=canfind(len);
-        cout<<"ÇëÊäÈëÃÜÂë£º"<<endl;
+        cout<<"è¯·è¾“å…¥å¯†ç ï¼š"<<endl;
         scanf("%s",rere);
         len=strlen(rere);
         system("cls");
         while(!charsame(rere,user[nowuser].password,user[nowuser].passwordlen)||(len!=user[nowuser].passwordlen)){
-            cout<<"±§Ç¸£¬ÃÜÂë´íÎó"<<endl;
-            cout<<"ÇëÖØÐÂÊäÈë"<<endl;
+            cout<<"æŠ±æ­‰ï¼Œå¯†ç é”™è¯¯"<<endl;
+            cout<<"è¯·é‡æ–°è¾“å…¥"<<endl;
             scanf("%s",rere);
             len=strlen(rere);
             system("cls");
@@ -853,23 +853,23 @@ bool login_register(){
     if (k=='2'){
         usertot++;
         nowuser=usertot;
-        cout<<"ÇëÊäÈëÓÃ»§Ãû£º"<<endl;
+        cout<<"è¯·è¾“å…¥ç”¨æˆ·åï¼š"<<endl;
         scanf("%s",rere);
         while(canfind(strlen(rere))){
             system("cls");
-            cout<<"±§Ç¸£¬ÓÃ»§ÃûÖØ¸´£¬ÇëÖØÐÂÊäÈë"<<endl;
+            cout<<"æŠ±æ­‰ï¼Œç”¨æˆ·åé‡å¤ï¼Œè¯·é‡æ–°è¾“å…¥"<<endl;
             scanf("%s",rere);
         }
         for (int i=0;i<strlen(rere);i++)user[usertot].name[i]=rere[i];
         user[usertot].namelen=strlen(rere);
-        cout<<"ÇëÊäÈëÃÜÂë£º"<<endl;
+        cout<<"è¯·è¾“å…¥å¯†ç ï¼š"<<endl;
         scanf("%s",user[usertot].password);
         user[usertot].passwordlen=strlen(user[usertot].password);
         user[usertot].gold=user[usertot].h=user[usertot].u=0;
     }
     return 1;
 }
-//×¢²á µÇÂ¼
+//æ³¨å†Œ ç™»å½•
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int sy(){
@@ -880,15 +880,15 @@ int sy(){
     for (int i=1;i<=usertot;i++)cin>>user[i].name>>user[i].namelen>>user[i].password>>user[i].passwordlen>>user[i].gold>>user[i].h>>user[i].u;
    // enter();
     freopen("CON", "r", stdin);
-    cout<<"µÇÂ½Çë°´1"<<endl;
-    cout<<"×¢²áÇë°´2"<<endl;
+    cout<<"ç™»é™†è¯·æŒ‰1"<<endl;
+    cout<<"æ³¨å†Œè¯·æŒ‰2"<<endl;
     string name,password;
     if (!login_register())return 0;
-    cout<<"»¶Ó­£¬"<<user[nowuser].name<<"£¡"<<endl;
+    cout<<"æ¬¢è¿Žï¼Œ"<<user[nowuser].name<<"ï¼"<<endl;
     Sleep(1500);
     game2();
     system("cls");
-    cout<<"±£´æÖÐ£¬ÇëÉÔµÈ..."<<endl;
+    cout<<"ä¿å­˜ä¸­ï¼Œè¯·ç¨ç­‰..."<<endl;
     fileout();
     system("cls");
     return 0;
