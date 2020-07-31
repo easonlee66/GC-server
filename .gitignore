@@ -16,3 +16,4 @@ game.ini
 # ignore useless files
 push.bat
 /C++/fivepeople
+push.sh
