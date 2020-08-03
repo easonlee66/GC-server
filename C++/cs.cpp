@@ -1,7 +1,10 @@
 #include <iostream>
 #include <cstdlib>
+#include "sync.h"
+#ifdef _IS_WINDOWS__
 #include <windows.h>
 #include <conio.h>
+#endif
 using namespace std;
 void print(string index,int speed=100){
 	for(int i=0;i<(int)index.length();i++){

@@ -12,11 +12,6 @@
 //#define DEBUG//是否为内部调试模式 
 using namespace std;
 char UsersName[100];
-#ifdef _IS_WINDOWS__
-#define get getch
-#else
-#define get getchar
-#endif
 int getint(int *index=NULL){
 	char c;
 	int a;
@@ -36,24 +31,6 @@ void print(string a,int speed=100){
 		#endif
 	}
 }
-#ifndef _IS_WINDOWS__
-#define MB_OK 1
-#define MB_YESNO 2
-#define MB_SYSTEMMODAL 2
-#define IDYES true
-bool MessageBox(int* x,string title,string body,int type){
-    cout << title << "\n" << body << "\n";
-    if(type==2){
-        cout << "确定请按1加回车，否则按2加回车";
-        return getchar()=='1';
-    }
-    else{
-        cout << "请按任意键加回车继续";
-        getchar();
-        return IDYES;
-    }
-}
-#endif
 struct Users{
 	string key;
 	string name;
@@ -63,16 +40,12 @@ struct Users{
 queue <Users> name;
 bool C_WINDOWS_=false;
 char enter;
-#ifndef _IS_WINDOWS__
-void system(string s){
-    return ;
-}
-void Sleep(int s){
-    return ;
-}
-#endif
 void wol(){
-	enter='\r'; 
+    #ifdef _IS_WINDOWS__
+	enter='\r';
+    #else
+    enter='\n';
+    #endif
 }
 string getint2(){
 	char c;
