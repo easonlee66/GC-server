@@ -1,5 +1,5 @@
 @echo off
-title GC-server Upgrader
+title GC-server-Upgrader
 
 @echo on
 echo GC-server Upgrading,please wait……
