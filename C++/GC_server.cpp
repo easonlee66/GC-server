@@ -1,18 +1,21 @@
 #include<stdio.h>
+#include "sync.h"
+#ifdef _IS_WINDOWS__
 #include<windows.h>
-#include<iostream>
 #include<conio.h>
+#endif
+#include<iostream>
 #include <stdlib.h>
 #include <queue>
 #include <string>
 //一大堆头文件
-#define DEBUG//是否为内部调试模式 
+//#define DEBUG//是否为内部调试模式 
 using namespace std;
 char UsersName[100];
 int getint(int *index=NULL){
 	char c;
 	int a;
-	while((c=getch())!=13){
+	while((c=get())!=13){
 		cout << c-'0';
 		a*=10;
 		a+=c-'0';
@@ -23,7 +26,9 @@ int getint(int *index=NULL){
 void print(string a,int speed=100){
 	for(int i=0;i<a.length();i++){
 		printf("%c",a[i]);
+		#ifdef _IS_WINDOWS__
 		Sleep(speed);
+		#endif
 	}
 }
 struct Users{
@@ -36,7 +41,11 @@ queue <Users> name;
 bool C_WINDOWS_=false;
 char enter;
 void wol(){
-	enter='\r'; 
+    #ifdef _IS_WINDOWS__
+	enter='\r';
+    #else
+    enter='\n';
+    #endif
 }
 string getint2(){
 	char c;
@@ -176,8 +185,10 @@ int dl(){
 		return 0;
 	}
 }
+#ifdef _IS_WINDOWS__
 #define FOREGROUND_WHITE FOREGROUND_RED|FOREGROUND_BLUE|FOREGROUND_GREEN
 #define RETURN_INIT SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE)
+#endif
 void message(){
 	system("cls");
 	print("\n\n\n\n\n\n\n\n\n\n\n                                                                         ",0);
@@ -207,11 +218,13 @@ void enterX(){
 	RETURN_INIT;
 }
 #undef n
+#ifdef _IS_WINDOWS__
 #define STDHANDLE GetStdHandle(STD_OUTPUT_HANDLE)
+#endif
 bool Ause(string gamename){
 	system("cls");
 	cout << "是否将您的注册信息授权给" << gamename << "？\n1. 是 2.否\n注：如果你想使用作弊，请输入2";
-	return (getch-'0')==1;
+	return (get()-'0')==1;
 }
 int main(){
 	system("title GC_server1.1版本服务器");
@@ -254,7 +267,9 @@ int main(){
 		dl();
 	}
 	freopen("CON","r",stdin);
+#ifdef _IS_WINDOWS__
 	system("cls");
+#endif
 	cout<< "尊敬的" << UserLevel << " " << UsersName << "你好^_^\n";
 	while(number!=0){
 		cout << "选择哪一款游戏？\n  1.猜数（原创）  2.石头剪刀布（转载）  3.拯救公主（原创）     4.贪吃蛇（转载）  5.迷宫（转载）  6.神域（转载）   7.2048（转载）   8.斗地主（转载）   " << ((UsersLevel=="非正式用户")?"9.输入邀请码以成为正式用户   10.输入赞赏代码以成为正式用户  11.输入辅助码以成为证是用户":"") << "  0.退出";
@@ -267,7 +282,7 @@ int main(){
 			case 0:goto out;
 			case 2:system("cls");system("ctjdb");break;
 			case 1:system("cls");
-			if(Ause("拯救公主游戏"){
+			if(Ause("拯救公主游戏")){
 				char x[200];
 				sprintf(x,"zjgz %s",UsersName);
 				system(x);
@@ -287,7 +302,6 @@ int main(){
 				break;
 			}system("cls");break;
 			case 5:system("cls");system("mg");break;
-			case 6:
 		}
 		system("cls");
 	}
